@@ -1,0 +1,30 @@
+{
+    "name": "TheNewYorkStories",
+    "displayName": "TheNewYorkStories",
+    "expo": {
+        "name": "TheNewYorkStories",
+        "slug": "TheNewYorkStories",
+        "version": "1.0.0",
+        "privacy": "public",
+        "sdkVersion": "41.0.0",
+        "orientation": "portrait",
+        "icon": "./src/assets/images/icon.png",
+        "assetBundlePatterns": ["**/*"],
+        "platforms": ["ios", "android", "web"],
+        "splash": {
+            "image": "./src/assets/images/splash.png",
+            "resizeMode": "contain",
+            "backgroundColor": "#ffffff"
+        },
+        "packagerOpts": {
+            "config": "metro.config.js",
+            "sourceExts": ["js", "jsx"]
+        },
+        "updates": {
+            "fallbackToCacheTimeout": 0
+        },
+        "ios": {
+            "supportsTablet": true
+        }
+    }
+}
