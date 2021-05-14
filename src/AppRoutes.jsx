@@ -11,7 +11,7 @@ const Stack = createStackNavigator();
 
 const AppRoutes = () => (
     <NavigationContainer>
-        <Stack.Navigator>
+        <Stack.Navigator initialRouteName='Home' screenOptions={{ headerShown: false }}>
             {ROUTES.map(({ name, Component }, index) => (
                 <Stack.Screen key={index} name={name} component={Component} />
             ))}
