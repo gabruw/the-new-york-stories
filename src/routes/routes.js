@@ -1,6 +1,5 @@
 //#region Imports
 
-import ERROR from 'views/error';
 import SCIENCE from 'views/home';
 import HOME from 'views/science';
 import TECHNOLOGY from 'views/technology';
@@ -19,11 +18,9 @@ const ROUTES = [
     {
         name: 'Technology',
         Component: TECHNOLOGY
-    },
-    {
-        name: 'Error',
-        Component: ERROR
     }
 ];
+
+export const DEFAULT_ROUTE = ROUTES[0].name;
 
 export default ROUTES;

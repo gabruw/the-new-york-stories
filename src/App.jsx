@@ -3,8 +3,8 @@
 import StartAppLoader from 'containers/StartAppLoader';
 import React from 'react';
 import { ThemeProvider } from 'react-native-elements';
+import AppRoutes from 'routes/AppRoutes';
 import THEME from 'utils/constants/theme';
-import AppRoutes from './AppRoutes';
 
 //#endregion
 
