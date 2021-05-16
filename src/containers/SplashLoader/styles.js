@@ -1,16 +1,16 @@
 //#region Imports
 
+import FONT from 'assets/styles/font';
 import { StyleSheet } from 'react-native';
-import FONT from './font';
 
 //#endregion
 
-const useGlobalStyles = () =>
+const useStyles = () =>
     StyleSheet.create({
-        view: {
+        content: {
             flex: 1,
             ...FONT.REGULAR
         }
     });
 
-export default useGlobalStyles;
+export default useStyles;

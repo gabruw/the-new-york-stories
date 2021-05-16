@@ -9,7 +9,7 @@ import useStyles from './styles';
 
 //#endregion
 
-const AppLoader = () => {
+const LoadingScreen = () => {
     const styles = useStyles();
 
     return (
@@ -24,4 +24,4 @@ const AppLoader = () => {
     );
 };
 
-export default AppLoader;
+export default LoadingScreen;

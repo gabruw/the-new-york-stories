@@ -5,19 +5,19 @@ import GeomanistBold from 'assets/fonts/Geomanist-Bold.ttf';
 import GeomanistLight from 'assets/fonts/Geomanist-Light.ttf';
 import GeomanistMedium from 'assets/fonts/Geomanist-Medium.ttf';
 import GeomanistThin from 'assets/fonts/Geomanist-Thin.ttf';
-import useGlobalStyles from 'assets/styles/global';
-import AppLoader from 'components/AppLoader';
+import LoadingScreen from 'containers/SplashLoader/LoadingScreen';
 import * as Font from 'expo-font';
 import React, { useCallback, useEffect, useState } from 'react';
 import { View } from 'react-native';
+import useStyles from './styles';
 
 //#endregion
 
-const StartAppLoader = ({ children }) => {
-    const styles = useGlobalStyles();
+const SplashLoader = ({ children }) => {
+    const styles = useStyles();
     const [isLoading, setIsLoading] = useState(true);
 
-    const fetch = useCallback(async () => {
+    const fonts = useCallback(async () => {
         await Font.loadAsync({
             'Chomsky-Medium': ChomskyMedium,
             'Geomanist-Thin': GeomanistThin,
@@ -25,15 +25,14 @@ const StartAppLoader = ({ children }) => {
             'Geomanist-Light': GeomanistLight,
             'Geomanist-Medium': GeomanistMedium
         });
-
-        setIsLoading(false);
     }, []);
 
     useEffect(() => {
-        fetch();
+        fonts();
+        setIsLoading(false);
     }, []);
 
-    return <View style={styles.view}>{!isLoading ? children : <AppLoader />}</View>;
+    return <View style={styles.content}>{!isLoading ? children : <LoadingScreen />}</View>;
 };
 
-export default StartAppLoader;
+export default SplashLoader;

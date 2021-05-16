@@ -1,8 +1,6 @@
 //#region Imports
 
 import { useCallback, useState } from 'react';
-import { useHistory } from 'react-router-dom';
-import ROUTE_NAME from 'routes/route-name';
 import MISC_ERROR from 'utils/constants/error/misc';
 import sleep from 'utils/function/sleep';
 
@@ -16,52 +14,44 @@ const initalState = {
 };
 
 const useRequestState = () => {
-    const history = useHistory();
     const [requestState, setRequestState] = useState(initalState);
 
     const clear = useCallback((timeout = 100) => setTimeout(() => setRequestState(initalState), timeout), []);
 
     const run = useCallback(
         async (callback, options) => {
-            setRequestState({ ...initalState, isLoading: true, success: undefined });
+            setRequestState({ ...initalState, isLoading: true, success: false });
 
             if (options?.sleep) {
-                await sleep(options?.sleepTimeout || 3000);
+                sleep(options?.sleepTimeout || 3000);
             }
 
-            let responseObj = null;
+            let response = null;
             try {
                 const { data } = await callback();
 
-                const values = data.data ? data.data : data;
-                const errors = data.errors ? data.errors : initalState.errors;
-
-                responseObj = {
+                response = {
                     ...initalState,
                     success: true,
-                    data: values,
-                    errors: errors
+                    data: data.results
                 };
             } catch (error) {
                 const responseError = error && error.response;
-                if (responseError && responseError.status === 401) {
-                    history.push([ROUTE_NAME.AUTHENTICATION]);
-                }
 
                 if (options?.autoClear) {
                     clear(5000);
                 }
 
-                responseObj = {
+                response = {
                     ...initalState,
-                    errors: responseError && responseError.data ? responseError.data.errors : MISC_ERROR.UNKNOW
+                    errors: responseError && responseError.data ? responseError.data.fault : MISC_ERROR.UNKNOW
                 };
             }
 
-            setRequestState(responseObj);
-            return responseObj;
+            setRequestState(response);
+            return response;
         },
-        [history, clear]
+        [clear]
     );
 
     return {

@@ -1,8 +1,8 @@
 //#region Imports
 
-import SCIENCE from 'views/home';
-import HOME from 'views/science';
-import TECHNOLOGY from 'views/technology';
+import HOME from 'views/top-stories/home';
+import SCIENCE from 'views/top-stories/science';
+import TECHNOLOGY from 'views/top-stories/technology';
 
 //#endregion
 
