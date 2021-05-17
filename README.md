@@ -1,3 +1,4 @@
+
 # The New York Stories
 
 <p>
@@ -46,6 +47,9 @@ Os seguintes comandos são suportados pela aplicação:
 | eject     | expo eject                | Remove as dependências de compilação      |
 | test      | jest                      | Executa os testes                         |
 | lint      | eslint .                  | Executa o ESLint                          |
+
+## 🏯 Arquitetura
+A arquitetura foi direcionada para que os princípios do S.O.L.I.D. pudessem ser materializados da melhor forma possível.  Os limites arquiteturais foram definidos, com maior ênfase no S.R.P. (Single Responsibility Principle) e L.S.P. (Liskov Substitution Principle); dessa forma, é possível que novos módulos sejam acoplados ao código sem que haja necessidade de alterar o que já havia sido efetuado.
 
 ## 🧮 Pirâmide de Testes
 
