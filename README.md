@@ -62,7 +62,7 @@ A ideia foi de agrupar estas abas em páginas separadamente. Utilizar as sub-rot
 ### Porque utilizar *SVG Components* ao invés do proprio SVG?
 Os *SVG Components* são mais maleaveis e menos custosos de customizar que os proprios SVG.
 
-## Limitações
+## 🧨 Limitações
 Devido a atualizações recentes do React Native, algumas bibliotecas podem apresentar mal funcionamento em alguns dispositivos.
 
 ### "naive animatedmodule.startOperationBatch is not a function"
@@ -74,6 +74,7 @@ if (Platform.OS === 'android') {
   NativeAnimatedModule.startOperationBatch();
 }
 `
+
 Para:
 `
 if (Platform.OS === 'android' && NativeAnimatedModule.startOperationBatch) {
@@ -87,12 +88,14 @@ if (Platform.OS === 'android') {
   NativeAnimatedModule.finishOperationBatch();
 }
 `
+
 Para:
 `
 if (Platform.OS === 'android' && NativeAnimatedModule.finishOperationBatch) {
   NativeAnimatedModule.finishOperationBatch();
 }
 `
+
 *Fonte: https://stackoverflow.com/questions/66666328/react-native-on-button-press-nativeanimatedmodule-startoperationbatch-is-not*
 
 ## 🧮 Pirâmide de Testes
