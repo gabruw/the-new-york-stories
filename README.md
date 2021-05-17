@@ -42,14 +42,14 @@ Os seguintes comandos são suportados pela aplicação:
 |-----------|---------------------------|-------------------------------------------|
 | start     | expo start                | Executa a aplicação pelo Expo             |
 | web       | expo start --web          | Executa a aplicação no navegador          |
-| ios		| expo start --ios          | Executa a aplicação no emulador iOS       |
-| android	| expo start --android      | Executa a aplicação no emulador Android   |
+| ios		    | expo start --ios          | Executa a aplicação no emulador iOS       |
+| android	  | expo start --android      | Executa a aplicação no emulador Android   |
 | eject     | expo eject                | Remove as dependências de compilação      |
 | test      | jest                      | Executa os testes                         |
 | lint      | eslint .                  | Executa o ESLint                          |
 
 ## 🏯 Arquitetura
-A arquitetura foi direcionada para que os princípios do S.O.L.I.D. pudessem ser materializados da melhor forma possível.  Os limites arquiteturais foram definidos, com maior ênfase no S.R.P. (Single Responsibility Principle) e L.S.P. (Liskov Substitution Principle); dessa forma, é possível que novos módulos sejam acoplados ao código sem que haja necessidade de alterar o que já havia sido efetuado.
+A arquitetura foi desenvovida levando em consideração os princípios do S.O.L.I.D. apresentados por Robert C. Martin. Os limites arquiteturais foram definidos para enfatizar o S.R.P. (Single Responsibility Principle) e L.S.P. (Liskov Substitution Principle). Dessa forma, é possível que novos módulos sejam acoplados ao código sem que haja necessidade de alterar os demais componentes.
 
 ## 🧮 Pirâmide de Testes
 
