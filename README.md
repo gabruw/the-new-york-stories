@@ -46,3 +46,16 @@ Os seguintes comandos são suportados pela aplicação:
 | eject     | expo eject                | Remove as dependências de compilação      |
 | test      | jest                      | Executa os testes                         |
 | lint      | eslint .                  | Executa o ESLint                          |
+
+## 🧮 Pirâmide de Testes
+
+### Unidade
+Os testes de unidade (ou testes unitários) são responsáveis por testar a menor unidade de código. Este teste é independente de iterações com outras partes do código, possuindo um maior número, menos acoplada e mais rápida de se executar.
+
+### Integração
+Os testes de integração são responsáveis por criar a iteração de duas ou mais unidades. Este tipo possui o objetivo de testar funcionalidades do sistema, possuindo uma quantidade maior que os E2E e menor que os de unidade. 
+
+### E2E (end-to-end)
+Os testes E2E (ponta-a-ponta) são os testes mais fragilizados do sistema. Com o intuito de simular as ações tomadas em um cenário real, como preenchimento de formulários, navegações e cliques. Estes testes são os que possuem a menor quantidade, são os mais lentos e mais acoplados possíveis.
+
+![Pirâmide de Testes](https://i.imgur.com/FAvhRTT.png)
