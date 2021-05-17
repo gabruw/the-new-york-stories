@@ -34,7 +34,7 @@ const CardNews = ({ story }) => {
                 </Card.Title>
             </View>
 
-            <Card.Image source={url} onPress={() => handleDetails()} />
+            <Card.Image source={{ uri: url }} onPress={() => handleDetails()} />
         </Card>
     );
 };

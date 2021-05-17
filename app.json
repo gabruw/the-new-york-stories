@@ -1,15 +1,16 @@
 {
-    "name": "TheNewYorkStories",
+    "name": "The New York Stories",
     "displayName": "TheNewYorkStories",
     "expo": {
-        "name": "TheNewYorkStories",
-        "slug": "TheNewYorkStories",
         "version": "1.0.0",
         "privacy": "public",
         "sdkVersion": "41.0.0",
         "orientation": "portrait",
-        "icon": "./src/assets/images/icon.png",
+        "name": "The New York Stories",
+        "slug": "TheNewYorkStories",
+        "entryPoint": "./src/index.js",
         "assetBundlePatterns": ["**/*"],
+        "icon": "./src/assets/images/icon.png",
         "platforms": ["ios", "android", "web"],
         "splash": {
             "image": "./src/assets/images/splash.png",
