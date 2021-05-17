@@ -1,4 +1,4 @@
-# The New York Times
+# The New York Stories
 
 <p>
   <!-- iOS -->
