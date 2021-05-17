@@ -22,22 +22,15 @@ DerivedData
 *.xcuserstate
 project.xcworkspace
 
-# Android/IntelliJ
-#
-build/
-.idea
-.gradle
-local.properties
-*.iml
-
 # node.js
 #
 .env
+node_modules
 node_modules/**/*
 npm-debug.log
 yarn-error.log
 
-# Expo
+# expo
 #
 .expo
 *.jks
@@ -48,6 +41,14 @@ yarn-error.log
 *.orig.*
 web-build/
 web-report/
+
+# sonnar
+#
+.scannerwork
+
+# stryker
+#
+.stryker-tmp
 
 # BUCK
 #
@@ -77,8 +78,3 @@ ios
 # Android
 #
 android
-
-# Expo
-#
-.expo/
-web-build/

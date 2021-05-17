@@ -27,8 +27,8 @@ const useRequestState = () => {
         async (callback, options) => {
             setRequestState({ ...initalState, isLoading: true, success: false });
 
-            if (options?.sleep) {
-                sleep(options?.sleepTimeout || 3000);
+            if (options && options.sleep) {
+                sleep(options.sleepTimeout || 3000);
             }
 
             let response = null;
@@ -47,7 +47,7 @@ const useRequestState = () => {
                     handleSnackbar(MISC_ERROR.EXCEEDED, 'RECARREGAR', reload, true, 'error');
                 }
 
-                if (options?.autoClear) {
+                if (options && options.autoClear) {
                     clear(5000);
                 }
 
