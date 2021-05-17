@@ -6,6 +6,8 @@ import COLOR from 'assets/styles/color';
 
 //#endregion
 
+const { DARK } = COLOR.RED;
+
 const useStyles = () =>
     StyleSheet.create({
         card: {
@@ -20,9 +22,9 @@ const useStyles = () =>
             ...ALIGN.LEFT
         },
         title: {
+            color: DARK,
             fontSize: 18,
-            textAlign: 'left',
-            color: COLOR.ERROR
+            textAlign: 'left'
         },
         content: {
             padding: 15,

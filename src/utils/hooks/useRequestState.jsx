@@ -1,8 +1,10 @@
 //#region Imports
 
 import { useCallback, useState } from 'react';
+import useSystemContext from 'storages/system/context';
 import MISC_ERROR from 'utils/constants/error/misc';
 import sleep from 'utils/function/sleep';
+import useReload from './useReload';
 
 //#endregion
 
@@ -14,6 +16,9 @@ const initalState = {
 };
 
 const useRequestState = () => {
+    const { reload } = useReload();
+    const { handleSnackbar } = useSystemContext();
+
     const [requestState, setRequestState] = useState(initalState);
 
     const clear = useCallback((timeout = 100) => setTimeout(() => setRequestState(initalState), timeout), []);
@@ -37,6 +42,10 @@ const useRequestState = () => {
                 };
             } catch (error) {
                 const responseError = error && error.response;
+
+                if (responseError.status === 429) {
+                    handleSnackbar(MISC_ERROR.EXCEEDED, 'RECARREGAR', reload, true);
+                }
 
                 if (options?.autoClear) {
                     clear(5000);

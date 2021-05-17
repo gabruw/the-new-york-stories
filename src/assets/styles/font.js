@@ -10,7 +10,7 @@ const FONT = {
             fontFamily: 'Geomanist-Bold'
         },
         REGULAR: {
-            fontFamily: 'Geomanist'
+            fontFamily: 'Geomanist-Regular'
         }
     },
     CHOMSKY: {

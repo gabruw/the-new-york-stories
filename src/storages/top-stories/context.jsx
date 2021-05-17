@@ -1,7 +1,7 @@
 //#region Imports
 
-import React, { createContext, useCallback, useContext, useEffect, useState } from 'react';
-import TOP_STORIES from 'utils/constants/fields/top-stories';
+import React, { createContext, useCallback, useContext, useEffect, useRef, useState } from 'react';
+import TOP_STORIES_FIELDS from 'utils/constants/fields/top-stories';
 import CONTEXT_INITIAL_STATE from 'utils/constants/type/context-initial-state';
 import isInvalid from 'utils/function/isInvalid';
 import useRequestState from 'utils/hooks/useRequestState';
@@ -11,13 +11,19 @@ import { getHome, getScience, getTechnology } from './services/get-data';
 
 const TopStoriesContext = createContext();
 
+const { HOME, SCIENCE, TECHNOLOGY } = TOP_STORIES_FIELDS;
+
 const initialState = {
-    [TOP_STORIES.THIS]: null,
+    [HOME]: null,
+    [SCIENCE]: null,
+    [TECHNOLOGY]: null,
     ...CONTEXT_INITIAL_STATE
 };
 
 export const TopStoriesContextProvider = ({ children, defaultValues }) => {
+    const modalRef = useRef(null);
     const { run, requestState } = useRequestState();
+
     const [state, setState] = useState({ ...initialState, ...defaultValues });
 
     useEffect(() => {
@@ -39,29 +45,24 @@ export const TopStoriesContextProvider = ({ children, defaultValues }) => {
         [setState]
     );
 
-    const setFetch = useCallback(
-        (data, errors) => setState((prevState) => ({ ...prevState, errors, [TOP_STORIES.THIS]: data })),
-        [setState]
-    );
-
     const fetchHome = useCallback(async () => {
         const { data, errors } = await run(() => getHome());
-        setFetch(data, errors);
-    }, [run, setFetch]);
+        setState((prevState) => ({ ...prevState, errors, [HOME]: data }));
+    }, [run, setState]);
 
     const fetchScience = useCallback(async () => {
         const { data, errors } = await run(() => getScience());
-        setFetch(data, errors);
-    }, [run, setFetch]);
+        setState((prevState) => ({ ...prevState, errors, [SCIENCE]: data }));
+    }, [run, setState]);
 
     const fetchTechnology = useCallback(async () => {
         const { data, errors } = await run(() => getTechnology());
-        setFetch(data, errors);
-    }, [run, setFetch]);
+        setState((prevState) => ({ ...prevState, errors, [TECHNOLOGY]: data }));
+    }, [run, setState]);
 
     return (
         <TopStoriesContext.Provider
-            value={{ state, setIsLoading, setSelected, fetchHome, fetchScience, fetchTechnology }}
+            value={{ state, modalRef, setIsLoading, setSelected, fetchHome, fetchScience, fetchTechnology }}
         >
             {children}
         </TopStoriesContext.Provider>
@@ -69,10 +70,10 @@ export const TopStoriesContextProvider = ({ children, defaultValues }) => {
 };
 
 const useTopStoriesContext = () => {
-    const { state, setIsLoading, setSelected, fetchHome, fetchScience, fetchTechnology } =
+    const { state, modalRef, setIsLoading, setSelected, fetchHome, fetchScience, fetchTechnology } =
         useContext(TopStoriesContext);
 
-    return { setIsLoading, setSelected, fetchHome, fetchScience, fetchTechnology, ...state };
+    return { modalRef, setIsLoading, setSelected, fetchHome, fetchScience, fetchTechnology, ...state };
 };
 
 export default useTopStoriesContext;

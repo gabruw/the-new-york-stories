@@ -4,7 +4,7 @@ import ChomskyMedium from 'assets/fonts/Chomsky-Medium.ttf';
 import GeomanistBold from 'assets/fonts/Geomanist-Bold.ttf';
 import GeomanistLight from 'assets/fonts/Geomanist-Light.ttf';
 import GeomanistMedium from 'assets/fonts/Geomanist-Medium.ttf';
-import GeomanistThin from 'assets/fonts/Geomanist-Thin.ttf';
+import GeomanistRegular from 'assets/fonts/Geomanist-Regular.ttf';
 import LoadingScreen from 'containers/SplashLoader/LoadingScreen';
 import * as Font from 'expo-font';
 import React, { useCallback, useEffect, useState } from 'react';
@@ -20,10 +20,10 @@ const SplashLoader = ({ children }) => {
     const fonts = useCallback(async () => {
         await Font.loadAsync({
             'Chomsky-Medium': ChomskyMedium,
-            'Geomanist-Thin': GeomanistThin,
             'Geomanist-Bold': GeomanistBold,
             'Geomanist-Light': GeomanistLight,
-            'Geomanist-Medium': GeomanistMedium
+            'Geomanist-Medium': GeomanistMedium,
+            'Geomanist-Regular': GeomanistRegular
         });
     }, []);
 
