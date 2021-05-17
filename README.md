@@ -51,6 +51,17 @@ Os seguintes comandos são suportados pela aplicação:
 ## 🏯 Arquitetura
 A arquitetura foi desenvovida levando em consideração os princípios do S.O.L.I.D. apresentados por Robert C. Martin. Os limites arquiteturais foram definidos para enfatizar o S.R.P. (Single Responsibility Principle) e L.S.P. (Liskov Substitution Principle). Dessa forma, é possível que novos módulos sejam acoplados ao código sem que haja necessidade de alterar os demais componentes.
 
+## Esclarecimentos
+
+### Se o componente *TabsNavigator* conseguiria deduzir quais são suas sub-rotas, porque não chama-lo direto na *Route Factory*?
+O limite arquitetural do sistema parte do pressuposto que nem todas as *main routes* teram sub-rotas ou serão apresentadas desta forma. A repetição ou não dessa declaração deve ser algo a ser levado para as proximas telas se necessário.
+
+### Porque não utilizar o *navigation* para as sub-rotas?
+A ideia foi de agrupar estas abas em páginas separadamente. Utilizar as sub-rotas fora da *Route Factory* foi um limite imposto para, principalmente, diferenciar os tipos de rota do sistema.
+
+### Porque utilizar *SVG Components* ao invés do proprio SVG?
+Os *SVG Components* são mais maleaveis e menos custosos de customizar que os proprios SVG.
+
 ## 🧮 Pirâmide de Testes
 
 ### Unidade
