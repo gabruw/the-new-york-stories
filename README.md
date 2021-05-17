@@ -1,4 +1,4 @@
-# My Universal React Project
+# The New York Stories
 
 <p>
   <!-- iOS -->
@@ -15,30 +15,34 @@
   </a>
 </p>
 
-## 🚀 How to use
+## 📝 Resumo
+Esta é a The New York Stories, uma aplicação que consome a API do *The New York Times*.
 
-- Install packages with `yarn` or `npm install`.
-  - If you have native iOS code run `npx pod-install`
-- Run `yarn start` to start the bundler.
-- Open the project in a React runtime to try it:
-  - iOS: [Client iOS](https://itunes.apple.com/app/apple-store/id982107779)
-  - Android: [Client Android](https://play.google.com/store/apps/details?id=host.exp.exponent&referrer=blankexample)
-  - Web: Any web browser
+## 💻 Features
+- [X] Top Stories
 
-## Adding Native Code
+## 📖 Requisitos
 
-This project can be run from a web browser or the Expo client app. You may find that you want to add more native code later on. You can do this by ejecting the project and rebuilding it yourself.
+- É necessário possuir o `expo` e `expo-cli` instalado de forma global: [Expo](https://docs.expo.io/get-started/installation/)
+- Instale os pacotes através do comando `yarn install` ou `npm install`
+  - Se a execução for feita em um iOS nativo, execute `npx pod-install`
 
-- Run `yarn eject` to create the native projects.
-- You can still run your project in the web browser or Expo client, you just won't be able to access any new native modules you add.
+## 🚀 Execução
 
-## Publishing
+Para executa-lo, é necessário criar um arquivo `.env` na pasta matriz do projeto. Este arquivo deve conter a API Key que será utilizada para o acesso do conteúdo: `API_KEY=<key_value>` 
 
-- Deploy the native app to the App store and Play store using this guide: [Deployment](https://docs.expo.io/distribution/app-stores/).
-- Deploy the website using this guide: [Web deployment](https://docs.expo.io/distribution/publishing-websites/).
+Este projeto pode ser executado no seu browser ou através do Expo Client:
+  - iOS: [iTunes](https://itunes.apple.com/app/apple-store/id982107779)
+  - Android: [Google Play](https://play.google.com/store/apps/details?id=host.exp.exponent&referrer=blankexample)
+ 
+Os seguintes comandos são suportados pela aplicação: 
 
-## 📝 Notes
-
-- Learn more about [Universal React](https://docs.expo.io/).
-- See what API and components are [available in the React runtimes](https://docs.expo.io/versions/latest/).
-- Find out more about developing apps and websites: [Guides](https://docs.expo.io/guides/).
+| Comando   | Script                    | Efeito                                    |             
+|-----------|---------------------------|-------------------------------------------|
+| start     | expo start                | Executa a aplicação pelo Expo             |
+| web       | expo start --web          | Executa a aplicação no navegador          |
+| ios		| expo start --ios          | Executa a aplicação no emulador iOS       |
+| android	| expo start --android      | Executa a aplicação no emulador Android   |
+| eject     | expo eject                | Remove as dependências de compilação      |
+| test      | jest                      | Executa os testes                         |
+| lint      | eslint .                  | Executa o ESLint                          |
