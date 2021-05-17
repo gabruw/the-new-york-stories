@@ -44,7 +44,7 @@ const useRequestState = () => {
                 const responseError = error && error.response;
 
                 if (responseError.status === 429) {
-                    handleSnackbar(MISC_ERROR.EXCEEDED, 'RECARREGAR', reload, true);
+                    handleSnackbar(MISC_ERROR.EXCEEDED, 'RECARREGAR', reload, true, 'error');
                 }
 
                 if (options?.autoClear) {

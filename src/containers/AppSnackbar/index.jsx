@@ -4,15 +4,18 @@ import React, { useCallback } from 'react';
 import { BottomSheet, Button, ListItem } from 'react-native-elements';
 import useSystemContext from 'storages/system/context';
 import useStyles from './styles';
+import useTypeStyles from './type-styles';
 
 //#endregion
 
 const AppSnackbar = () => {
-    const styles = useStyles();
     const {
         handleSnackbar,
-        snackbar: { visibility, text, actionText, action }
+        snackbar: { visibility, text, actionText, action, type }
     } = useSystemContext();
+
+    const styles = useStyles();
+    const typeStyles = useTypeStyles(type);
 
     const handleAction = useCallback(() => {
         action && action();
@@ -21,7 +24,7 @@ const AppSnackbar = () => {
 
     return (
         <BottomSheet isVisible={visibility}>
-            <ListItem containerStyle={styles.listItems}>
+            <ListItem containerStyle={typeStyles}>
                 <ListItem.Content style={styles.content}>
                     <ListItem.Title style={styles.text}>{text}</ListItem.Title>
                     <Button

@@ -7,12 +7,20 @@ import { StyleSheet } from 'react-native';
 
 //#endregion
 
-const { DARKEST } = COLOR.GRAY;
+const { GRAY, RED } = COLOR;
 
 const useStyles = () =>
     StyleSheet.create({
         listItems: {
-            backgroundColor: DARKEST
+            margin: 10,
+            marginTop: 0,
+            borderRadius: 2
+        },
+        default: {
+            backgroundColor: GRAY.DARKEST
+        },
+        error: {
+            backgroundColor: RED.MEDIUM
         },
         content: {
             flexDirection: 'row',

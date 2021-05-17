@@ -18,10 +18,10 @@ export const SystemContextProvider = ({ children, defaultValues }) => {
     const [state, setState] = useState({ ...initialState, ...defaultValues });
 
     const handleSnackbar = useCallback(
-        (text, actionText, action, visibility = false) =>
+        (text, actionText, action, visibility = false, type = 'default') =>
             setState((prevState) => ({
                 ...prevState,
-                [SNACKBAR]: { text, action, actionText, visibility }
+                [SNACKBAR]: { text, action, actionText, visibility, type }
             })),
         [setState]
     );
