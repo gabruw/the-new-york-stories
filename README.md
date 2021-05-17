@@ -1,3 +1,4 @@
+
 # The New York Stories
 
 <p>
@@ -41,8 +42,35 @@ Os seguintes comandos são suportados pela aplicação:
 |-----------|---------------------------|-------------------------------------------|
 | start     | expo start                | Executa a aplicação pelo Expo             |
 | web       | expo start --web          | Executa a aplicação no navegador          |
-| ios		| expo start --ios          | Executa a aplicação no emulador iOS       |
-| android	| expo start --android      | Executa a aplicação no emulador Android   |
+| ios		    | expo start --ios          | Executa a aplicação no emulador iOS       |
+| android	  | expo start --android      | Executa a aplicação no emulador Android   |
 | eject     | expo eject                | Remove as dependências de compilação      |
 | test      | jest                      | Executa os testes                         |
 | lint      | eslint .                  | Executa o ESLint                          |
+
+## 🏯 Arquitetura
+A arquitetura foi desenvovida levando em consideração os princípios do S.O.L.I.D. apresentados por Robert C. Martin. Os limites arquiteturais foram definidos para enfatizar o S.R.P. (Single Responsibility Principle) e L.S.P. (Liskov Substitution Principle). Dessa forma, é possível que novos módulos sejam acoplados ao código sem que haja necessidade de alterar os demais componentes.
+
+## 💬 Esclarecimentos
+
+### Se o componente *TabsNavigator* conseguiria deduzir quais são suas sub-rotas, porque não chama-lo direto na *Route Factory*?
+O limite arquitetural do sistema parte do pressuposto que nem todas as *main routes* teram sub-rotas ou serão apresentadas desta forma. A repetição ou não dessa declaração deve ser algo a ser levado para as proximas telas se necessário.
+
+### Porque não utilizar o *navigation* para as sub-rotas?
+A ideia foi de agrupar estas abas em páginas separadamente. Utilizar as sub-rotas fora da *Route Factory* foi um limite imposto para, principalmente, diferenciar os tipos de rota do sistema.
+
+### Porque utilizar *SVG Components* ao invés do proprio SVG?
+Os *SVG Components* são mais maleaveis e menos custosos de customizar que os proprios SVG.
+
+## 🧮 Pirâmide de Testes
+
+### Unidade
+Os testes de unidade (ou testes unitários) são responsáveis por testar a menor unidade de código. Este teste é independente de iterações com outras partes do código, possuindo um maior número, menos acoplada e mais rápida de se executar.
+
+### Integração
+Os testes de integração são responsáveis por criar a iteração de duas ou mais unidades. Este tipo possui o objetivo de testar funcionalidades do sistema, possuindo uma quantidade maior que os E2E e menor que os de unidade. 
+
+### E2E (end-to-end)
+Os testes E2E (ponta-a-ponta) são os testes mais fragilizados do sistema. Com o intuito de simular as ações tomadas em um cenário real, como preenchimento de formulários, navegações e cliques. Estes testes são os que possuem a menor quantidade, são os mais lentos e mais acoplados possíveis.
+
+![Pirâmide de Testes](https://i.imgur.com/FAvhRTT.png)
