@@ -16,9 +16,10 @@ const AppHeader = () => {
     return (
         <Header
             placement='left'
+            containerStyle={styles.container}
             centerComponent={<HeaderBanner />}
-            leftContainerStyle={styles.content}
-            centerContainerStyle={styles.content}
+            leftContainerStyle={styles.containerLeft}
+            centerContainerStyle={styles.containerCenter}
             leftComponent={<Icon name='bars' size={16} color='#FFFFFF' onPress={() => toggleDrawer()} />}
         />
     );

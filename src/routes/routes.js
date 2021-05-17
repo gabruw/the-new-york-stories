@@ -1,26 +1,40 @@
 //#region Imports
 
-import HOME from 'views/top-stories/home';
-import SCIENCE from 'views/top-stories/science';
-import TECHNOLOGY from 'views/top-stories/technology';
+import TopStories from 'views/top-stories';
+import TopStoriesHome from 'views/top-stories/home';
+import TopStoriesScience from 'views/top-stories/science';
+import TopStoriesTechnology from 'views/top-stories/technology';
 
 //#endregion
 
-const ROUTES = [
+export const ROUTE_NAMES = {
+    TOP_STORIES: {
+        HOME: 'TopStoriesHome',
+        SCIENCE: 'TopStoriesScience',
+        TECHNOLOGY: 'TopStoriesTechnology'
+    }
+};
+
+export const MAIN_ROUTES = [
     {
-        name: 'Home',
-        Component: HOME
-    },
-    {
-        name: 'Science',
-        Component: SCIENCE
-    },
-    {
-        name: 'Technology',
-        Component: TECHNOLOGY
+        icon: 'thumbs-up',
+        title: 'Top Stories',
+        Component: TopStories,
+        name: ROUTE_NAMES.TOP_STORIES.HOME
     }
 ];
 
-export const DEFAULT_ROUTE = ROUTES[0].name;
-
-export default ROUTES;
+export const SUB_ROUTES = {
+    [ROUTE_NAMES.TOP_STORIES.HOME]: {
+        ROUTES: {
+            home: TopStoriesHome,
+            science: TopStoriesScience,
+            technology: TopStoriesTechnology
+        },
+        VIEWS: [
+            { key: 'home', title: 'Início' },
+            { key: 'science', title: 'Ciência' },
+            { key: 'technology', title: 'Tecnologia' }
+        ]
+    }
+};
