@@ -1,4 +1,4 @@
-# My Universal React Project
+# The New York Times
 
 <p>
   <!-- iOS -->
