@@ -45,10 +45,7 @@ web-report/
 # sonnar
 #
 .scannerwork
-
-# stryker
-#
-.stryker-tmp
+test-report.*
 
 # BUCK
 #

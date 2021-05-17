@@ -10,7 +10,7 @@ module.exports = {
     },
     setupFiles: ['<rootDir>/node_modules/regenerator-runtime/runtime', 'core-js'],
     testEnvironment: 'node',
-    testMatch: ['**/test/**/*.[jt]s?(x)'],
+    testMatch: ['**/tests/**/*.[jt]s?(x)'],
     testResultsProcessor: 'jest-sonar-reporter',
     transform: {
         '^.+\\.(js|jsx)?$': 'babel-jest'
