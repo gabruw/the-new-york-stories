@@ -5,7 +5,7 @@ import ButtonLink from 'components/ButtonLink';
 import AppModal from 'containers/AppModal';
 import React from 'react';
 import { View } from 'react-native';
-import { Text } from 'react-native-elements';
+import { Divider, Text } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import useTopStoriesContext from 'storages/top-stories/context';
 import useStyles from './styles';
@@ -23,6 +23,7 @@ const ModalContent = () => {
     return (
         <View style={styles.container}>
             <Text style={styles.title}>{title}</Text>
+            <Divider style={styles.divider} />
             <Text style={styles.abstract}>{abstract}</Text>
 
             <View style={styles.bottom}>
@@ -42,10 +43,11 @@ const ModalContent = () => {
 };
 
 const ModalNews = () => {
+    const styles = useStyles();
     const { modalRef, selected, setSelected } = useTopStoriesContext();
 
     return (
-        <AppModal ref={modalRef} onClose={() => setSelected()}>
+        <AppModal ref={modalRef} containerStyle={styles.modalAppContainer} onClose={() => setSelected()}>
             {selected && <ModalContent />}
         </AppModal>
     );

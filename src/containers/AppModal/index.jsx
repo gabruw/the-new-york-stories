@@ -1,20 +1,25 @@
 //#region Imports
 
-import React, { useImperativeHandle, forwardRef, useState } from 'react';
-import Modal from 'react-native-modal';
-import { View } from 'react-native';
-import useStyles from './styles';
-import Icon from 'react-native-vector-icons/FontAwesome5';
-import { Button } from 'react-native-elements';
 import COLOR from 'assets/styles/color';
+import React, { forwardRef, useImperativeHandle, useMemo, useState } from 'react';
+import { View } from 'react-native';
+import { Button } from 'react-native-elements';
+import Modal from 'react-native-modal';
+import Icon from 'react-native-vector-icons/FontAwesome5';
+import useStyles from './styles';
 
 //#endregion
 
 const { DARK } = COLOR.RED;
 
-const AppModal = ({ children, animationIn = 'fadeIn', animationOut = 'fadeOut', onClose, ...rest }, ref) => {
+const AppModal = (
+    { children, onClose, containerStyle, animationIn = 'fadeIn', animationOut = 'fadeOut', ...rest },
+    ref
+) => {
     const styles = useStyles();
     const [isVisible, setIsVisible] = useState(false);
+
+    const containerStyleSwitch = useMemo(() => containerStyle || styles.container, [containerStyle, styles]);
 
     useImperativeHandle(ref, () => ({
         show: () => setIsVisible(true),
@@ -31,7 +36,7 @@ const AppModal = ({ children, animationIn = 'fadeIn', animationOut = 'fadeOut', 
             onBackdropPress={() => setIsVisible(false)}
             {...rest}
         >
-            <View style={styles.container}>
+            <View style={containerStyleSwitch}>
                 <View style={styles.header}>
                     <Button
                         type='clear'
